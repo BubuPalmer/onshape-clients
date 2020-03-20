@@ -195,7 +195,7 @@ class Client:
     def _set_configuration(self, configuration_dictionary):
         configuration = Configuration()
 
-        configuration.verify_ssl = False
+        configuration.verify_ssl = True
         configuration.api_key['SECRET_KEY'] = configuration_dictionary.get('secret_key', "")
         configuration.api_key['ACCESS_KEY'] = configuration_dictionary.get('access_key', "")
 

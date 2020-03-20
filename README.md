@@ -1,6 +1,7 @@
 # Onshape Clients [![Build Status](https://travis-ci.org/onshape-public/onshape-clients.svg?branch=master)](https://travis-ci.org/onshape-public/onshape-clients)
 
 **NOTE**
+https://github.com/onshape-public/onshape-clients
 This repo is in beta status and is still under development. Please note that it can change in non-backwards-compatible 
 ways while it has a major version number of 0. If you run into any issues, feel free to submit an issue under the 
 'issues' tab on this repo.

@@ -19,7 +19,7 @@ prod_element_bank = OrderedDict(
     asm_three_axes=OnshapeElement(
         "https://cad.onshape.com/documents/cca81d10f239db0db9481e6f/v/3395c071ca9534c3b1151e4b/e/19fb95609c4cb02622ca9079"),
     ps_configurable_cube=OnshapeElement(
-        "https://cad.onshape.com/documents/cca81d10f239db0db9481e6f/v/6ccf88eb92d55be180c06cf9/e/69c9eedda86512966b20bc90"),
+        "https://cad.onshape.com/documents/cca81d10f239db0db9481e6f/v/c9b07497bec5975f317b0eb7/e/69c9eedda86512966b20bc90"),
 )
 
 
@@ -70,7 +70,9 @@ def tmp_dir():
 @pytest.fixture
 def new_document(request, client, name_factory):
     """Returns a blank new document."""
-    doc = OnshapeElement.create(name_factory())
+    doc_params = BTDocumentParams(name=name_factory())
+    doc = client.documents_api.create_document(doc_params)
+    doc = OnshapeElement.create_from_ids(did=doc.id, wvm='w', wvmid=doc.default_workspace.id)
     yield doc
     doc.delete()
 
